@@ -128,7 +128,116 @@ firebase-debug.log
 
 ## 3. 환경 변수 설정
 
-### 3.1 Vercel 환경 변수 추가
+### 3.1 Firebase 설정 확인
+
+Vercel 배포 전에 Firebase 설정을 완료해야 합니다:
+
+#### 3.1.1 Firebase 프로젝트 생성
+
+1. [Firebase Console](https://console.firebase.google.com/)에 접속
+2. 프로젝트 생성 또는 기존 프로젝트 선택
+3. Firestore Database 생성 (자세한 내용은 [FIREBASE_SETUP.md](./FIREBASE_SETUP.md) 참고)
+
+#### 3.1.2 Firebase 승인된 도메인 추가
+
+**중요**: Vercel 배포 후 반드시 Firebase Console에서 도메인을 승인해야 합니다!
+
+**방법 1: Firebase Authentication에서 설정 (권장)**
+
+1. Firebase Console 왼쪽 사이드바에서 **"Authentication"** 클릭
+2. **"설정"** 탭 클릭 (또는 상단의 "Settings" 메뉴)
+3. **"승인된 도메인"** 섹션 찾기
+4. **"도메인 추가"** 버튼 클릭
+5. Vercel 도메인 추가:
+   - `your-project.vercel.app` (기본 Vercel 도메인)
+   - 커스텀 도메인을 사용하는 경우 해당 도메인도 추가
+   - 예: `showcase.vercel.app`, `www.yourdomain.com`
+   - **주의**: `https://`는 붙이지 않고 도메인만 입력 (예: `showcase.vercel.app`)
+6. **"추가"** 또는 **"저장"** 클릭
+
+**방법 2: 프로젝트 설정에서 확인**
+
+만약 Authentication 메뉴가 보이지 않는다면:
+1. Firebase Console → 프로젝트 설정 (톱니바퀴 아이콘)
+2. **"일반"** 탭에서 **"내 앱"** 섹션 확인
+3. 웹 앱을 선택하고 설정 확인
+4. 또는 **"Authentication"** 메뉴를 먼저 활성화해야 할 수 있습니다:
+   - 왼쪽 사이드바에서 **"Authentication"** 클릭
+   - 처음 사용하는 경우 **"시작하기"** 버튼 클릭하여 활성화
+
+**참고**: 
+- Firebase Authentication을 사용하지 않는 경우에도 도메인 승인은 필요할 수 있습니다
+- 일부 Firebase 서비스(예: Firestore)는 도메인 승인이 필요하지 않을 수 있지만, 웹 앱의 경우 일반적으로 필요합니다
+
+#### 3.1.3 Firebase 설정 정보 확인 및 복사
+
+Firebase Console에서 환경 변수에 필요한 정보를 찾는 방법:
+
+1. **Firebase Console 접속**
+   - [Firebase Console](https://console.firebase.google.com/) 접속
+   - 프로젝트 선택 (예: `sandae-frountend`)
+
+2. **프로젝트 설정 열기**
+   - 왼쪽 하단의 **톱니바퀴 아이콘** 클릭
+   - 또는 상단의 프로젝트 이름 옆 **드롭다운** → **"프로젝트 설정"** 클릭
+
+3. **일반 탭에서 정보 확인**
+   - **"일반"** 탭이 기본으로 열려있습니다
+   - **"내 앱"** 섹션에서 웹 앱(</> 아이콘) 찾기
+   - 웹 앱을 클릭하면 설정 정보가 표시됩니다
+
+4. **각 값 찾기**:
+   
+   **VITE_FIREBASE_API_KEY**
+   - "SDK 설정 및 구성" 섹션에서 찾을 수 있습니다
+   - 또는 "웹 앱" 카드에서 "구성" 버튼 클릭
+   - `apiKey: "AIzaSy..."` 형식의 값
+   - 예: `AIzaSyCr0b9kQGYRujw2CNb_LRZXQ7Udmjkmhew`
+   
+   **VITE_FIREBASE_AUTH_DOMAIN**
+   - `authDomain: "프로젝트ID.firebaseapp.com"` 형식
+   - 예: `sandae-frountend.firebaseapp.com`
+   
+   **VITE_FIREBASE_PROJECT_ID**
+   - "내 프로젝트" 섹션의 "프로젝트 ID"
+   - 예: `sandae-frountend`
+   
+   **VITE_FIREBASE_STORAGE_BUCKET**
+   - `storageBucket: "프로젝트ID.appspot.com"` 또는 `프로젝트ID.firebasestorage.app` 형식
+   - 예: `sandae-frountend.firebasestorage.app`
+   
+   **VITE_FIREBASE_MESSAGING_SENDER_ID**
+   - `messagingSenderId: "숫자"` 형식
+   - 예: `954731104488`
+   
+   **VITE_FIREBASE_APP_ID**
+   - `appId: "1:숫자:web:문자열"` 형식
+   - 예: `1:954731104488:web:bd66c06a91bcaf2759215d`
+
+5. **SDK 설정 복사 (간편한 방법)**
+   - Firebase Console → 프로젝트 설정 → 일반 탭
+   - 웹 앱 카드에서 **"구성"** 버튼 클릭
+   - 또는 "SDK 설정 및 구성" 섹션에서 전체 설정 코드 확인
+   - `firebaseConfig` 객체에서 각 값을 복사할 수 있습니다
+
+**예시 (실제 값 형식)**:
+```javascript
+const firebaseConfig = {
+  apiKey: "AIzaSyCr0b9kQGYRujw2CNb_LRZXQ7Udmjkmhew",
+  authDomain: "sandae-frountend.firebaseapp.com",
+  projectId: "sandae-frountend",
+  storageBucket: "sandae-frountend.firebasestorage.app",
+  messagingSenderId: "954731104488",
+  appId: "1:954731104488:web:bd66c06a91bcaf2759215d"
+};
+```
+
+**주의사항**:
+- 값에 따옴표(`"`)는 포함하지 마세요
+- 공백이나 줄바꿈이 없어야 합니다
+- 정확히 복사해야 합니다
+
+### 3.2 Vercel 환경 변수 추가
 
 1. Vercel 대시보드에서 프로젝트 선택
 2. **"Settings"** 탭 클릭
@@ -149,13 +258,48 @@ VITE_ADMIN_PASSWORD=your_secure_password
 5. 각 환경 변수에 대해 **"Production"**, **"Preview"**, **"Development"** 환경 선택
 6. **"Save"** 클릭
 
-### 3.2 재배포
+**주의사항**:
+- 환경 변수 이름은 반드시 `VITE_`로 시작해야 합니다 (Vite의 규칙)
+- Firebase 설정 정보는 Firebase Console에서 정확히 복사하세요
+- 민감한 정보는 절대 코드에 하드코딩하지 마세요
+
+### 3.3 Firestore 보안 규칙 설정
+
+Firebase Console → Firestore Database → 규칙 탭에서 다음 규칙을 설정하세요:
+
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // contacts 컬렉션에 대한 규칙
+    match /contacts/{document=**} {
+      // 읽기: 모든 사용자 허용 (관리자 대시보드용)
+      allow read: if true;
+      // 쓰기: 모든 사용자 허용 (Contact 폼 제출용)
+      allow write: if true;
+    }
+  }
+}
+```
+
+**프로덕션 환경 권장사항**:
+- 프로덕션에서는 인증을 추가하여 보안을 강화하세요
+- 예: `allow read: if request.auth != null;`
+
+### 3.4 재배포
 
 환경 변수를 추가한 후:
 1. **"Deployments"** 탭으로 이동
 2. 최신 배포 옆의 **"..."** 메뉴 클릭
 3. **"Redeploy"** 선택
 4. 또는 코드를 수정하고 GitHub에 푸시하면 자동으로 재배포됩니다
+
+### 3.5 Firebase 연결 확인
+
+배포 후 다음을 확인하세요:
+1. 웹사이트에서 연락 폼이 정상 작동하는지 확인
+2. 관리자 대시보드에서 데이터가 표시되는지 확인
+3. 브라우저 콘솔에서 Firebase 관련 오류가 없는지 확인
 
 ---
 
