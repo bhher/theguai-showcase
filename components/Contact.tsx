@@ -16,8 +16,8 @@ const Contact: React.FC = () => {
 
   // 카카오맵 초기화
   useEffect(() => {
-    // 카카오맵 API 키 설정
-    const KAKAO_API_KEY = 'bceccd594bb478b5533d7d2ec63f8bb0';
+    // 카카오맵 API 키 설정 (환경변수 또는 기본값)
+    const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_MAP_API_KEY || 'bceccd594bb478b5533d7d2ec63f8bb0';
     
     let mapInstance: any = null;
     let retryCount = 0;

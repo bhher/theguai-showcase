@@ -56,6 +56,7 @@ Vercel → Settings → Environment Variables에서 다음 변수들 추가:
 - [ ] `VITE_FIREBASE_STORAGE_BUCKET`
 - [ ] `VITE_FIREBASE_MESSAGING_SENDER_ID`
 - [ ] `VITE_FIREBASE_APP_ID`
+- [ ] `VITE_KAKAO_MAP_API_KEY` (카카오맵 사용 시 필수)
 - [ ] `VITE_ADMIN_USERNAME` (선택사항)
 - [ ] `VITE_ADMIN_PASSWORD` (선택사항)
 
@@ -78,13 +79,25 @@ Vercel → Settings → Environment Variables에서 다음 변수들 추가:
 
 **이 설정이 없으면 Firebase가 작동하지 않습니다!**
 
-## 6. Kakao Map 설정 ✅ (선택사항)
+## 6. Kakao Map 설정 ✅ (중요!)
+
+**카카오맵이 Vercel에서 표시되지 않는 경우 다음을 확인하세요:**
 
 - [ ] [Kakao Developers Console](https://developers.kakao.com) 접속
-- [ ] 앱 설정 → 플랫폼 → Web 플랫폼 등록
-- [ ] 사이트 도메인에 Vercel 도메인 추가
-- [ ] JavaScript 키 확인
-- [ ] `components/Contact.tsx`에서 API 키 확인
+- [ ] 내 애플리케이션 → 앱 선택 → 앱 설정 → 플랫폼
+- [ ] **Web 플랫폼 등록** (이미 등록되어 있으면 수정)
+- [ ] **사이트 도메인**에 Vercel 도메인 추가:
+  - [ ] `your-project.vercel.app` (기본 도메인)
+  - [ ] 커스텀 도메인 사용 시 해당 도메인도 추가
+  - [ ] 도메인 앞에 `https://`는 붙이지 않기 (예: `theguai-showcase.vercel.app`)
+- [ ] **JavaScript 키** 확인 및 복사
+- [ ] Vercel 환경 변수에 `VITE_KAKAO_MAP_API_KEY` 추가 (JavaScript 키 값)
+- [ ] 환경 변수 추가 후 **재배포** 실행
+
+**⚠️ 중요:**
+- 카카오맵은 HTTPS에서만 작동합니다 (Vercel은 자동으로 HTTPS 제공)
+- 도메인을 추가한 후 즉시 적용됩니다
+- 여러 도메인을 사용하는 경우 모두 추가해야 합니다
 
 ## 7. 배포 후 확인 ✅
 
