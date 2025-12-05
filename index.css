@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Animation Utilities */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1000ms ease-out, transform 1000ms ease-out;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-out;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(-10%); }
+  50% { transform: translateY(10%); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite ease-in-out;
+}
+
+@keyframes bounce-bubble {
+  0%, 100% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(-10px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.thegu-box {
+  height: 256px;
+  width: 256px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thegu-border-1 {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  background-image: conic-gradient(transparent, transparent, transparent, #00C1DF);
+  animation: rotate-border 4s infinite linear;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -250px;
+}
+
+.thegu-border-2 {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  background-image: conic-gradient(transparent, transparent, transparent, #d400d4);
+  animation: rotate-border 4s infinite linear;
+  animation-delay: -2s;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -250px;
+}
+
+.thegu-mask {
+  position: absolute;
+  inset: 4px;
+  background: linear-gradient(to bottom right, #1e1b4b, #581c87, #0f172a);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.thegu-inner {
+  position: absolute;
+  inset: 4px;
+  background: transparent;
+  border-radius: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
+}
+
+.thegu-intro-bg {
+  background: linear-gradient(to bottom right, #1e1b4b, #581c87, #0f172a);
+}
+
