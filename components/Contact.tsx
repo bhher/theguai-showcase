@@ -301,16 +301,13 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // 실제 이메일 전송 로직은 백엔드 API와 연동 필요
-    // 여기서는 시뮬레이션
     try {
-      // mailto 링크를 사용하여 기본 이메일 클라이언트 열기
-      const subject = encodeURIComponent(`문의: ${formData.name}님의 연락`);
-      const body = encodeURIComponent(`이름: ${formData.name}\n이메일: ${formData.email}\n\n메시지:\n${formData.message}`);
-      window.location.href = `mailto:contact@genai-course.com?subject=${subject}&body=${body}`;
-      
-      // 또는 실제 API 호출
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) });
+      // Firebase에 연락 폼 데이터 저장
+      await saveContactForm({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      });
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
@@ -319,6 +316,7 @@ const Contact: React.FC = () => {
         setSubmitStatus('idle');
       }, 3000);
     } catch (error) {
+      console.error('연락 폼 저장 중 오류:', error);
       setSubmitStatus('error');
       setTimeout(() => {
         setSubmitStatus('idle');
