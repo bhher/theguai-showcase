@@ -70,7 +70,7 @@ const HeroSlider: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
               <div className="max-w-2xl text-white transform transition-all duration-700 delay-300 translate-y-0 opacity-100">
                 <span className="inline-block py-1 px-3 rounded-full bg-indigo-600/30 border border-indigo-500/50 text-indigo-300 text-sm font-semibold mb-6 backdrop-blur-sm">
-                  GenAI & Modern Web
+                  TheGuAI & Modern Web
                 </span>
                 <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
                   {slide.title}

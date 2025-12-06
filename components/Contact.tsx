@@ -493,11 +493,11 @@ const Contact: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4 text-center">또는 직접 연락하기</h3>
             <div className="flex flex-col items-center justify-center gap-4">
               <a
-                href="mailto:contact@genai-course.com"
+                href="mailto:contact@theguai-course.com"
                 className="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                contact@genai-course.com
+                contact@theguai-course.com
               </a>
             </div>
           </div>
