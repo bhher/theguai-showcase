@@ -30,10 +30,10 @@ const Intro: React.FC<IntroProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 text-white overflow-hidden">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-gray-900 to-black text-white overflow-hidden">
       {/* Background Decorative Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-[100px] opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-10 right-10 w-64 h-64 bg-indigo-500 rounded-full blur-[120px] opacity-30 animate-pulse"></div>
+      <div className="absolute top-10 left-10 w-32 h-32 bg-cyan-500 rounded-full blur-[100px] opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-64 h-64 bg-blue-500 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
 
       {/* The Gu Character with Rotating Border */}
       <div className="relative mb-12 animate-bounce-slow">

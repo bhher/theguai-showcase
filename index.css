@@ -76,7 +76,7 @@ html {
   position: absolute;
   height: 500px;
   width: 500px;
-  background-image: conic-gradient(transparent, transparent, transparent, #00C1DF);
+  background-image: conic-gradient(transparent, transparent, transparent, #06b6d4);
   animation: rotate-border 4s infinite linear;
   top: 50%;
   left: 50%;
@@ -88,7 +88,7 @@ html {
   position: absolute;
   height: 500px;
   width: 500px;
-  background-image: conic-gradient(transparent, transparent, transparent, #d400d4);
+  background-image: conic-gradient(transparent, transparent, transparent, #3b82f6);
   animation: rotate-border 4s infinite linear;
   animation-delay: -2s;
   top: 50%;
@@ -100,7 +100,7 @@ html {
 .thegu-mask {
   position: absolute;
   inset: 4px;
-  background: linear-gradient(to bottom right, #1e1b4b, #581c87, #0f172a);
+  background: linear-gradient(to bottom right, #0f172a, #1e293b, #000000);
   border-radius: 50%;
   z-index: 1;
 }
@@ -119,7 +119,7 @@ html {
 }
 
 .thegu-intro-bg {
-  background: linear-gradient(to bottom right, #1e1b4b, #581c87, #0f172a);
+  background: linear-gradient(to bottom right, #0f172a, #1e293b, #000000);
 }
 
 
