@@ -22,6 +22,7 @@ export interface Student {
   intro: string;
   link: string;
   githubLink?: string;
+  image?: string;
 }
 
 export interface Slide {

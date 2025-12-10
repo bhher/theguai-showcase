@@ -11,6 +11,7 @@ import {
   Database, 
   Smartphone 
 } from 'lucide-react';
+import kun1Img from './images/kun1.jpg';
 
 export const INTRO_DURATION_MS = 5000;
 
@@ -100,11 +101,11 @@ export const COURSE_MODULES: CourseModule[] = [
 export const TEAM_PROJECTS: Project[] = [
   {
     id: 1,
-    title: "1조: AI 기반 인테리어 추천 서비스",
-    description: "사용자의 취향을 분석하여 Stable Diffusion을 활용해 맞춤형 인테리어 디자인을 제안하는 플랫폼입니다.",
+    title: "1조: 오늘 뭐 하지?",
+    description: "\"오늘 뭐 하지?\"라는 주제에 맞춰 할일 관리, 날씨 기반 옷차림 추천, 영화 추천, 지역 기반 맛집 추천을 제공하는 웹 사이트 (팀원: 강연우, 권혜지, 이희수, 천다솜)",
     image: "https://picsum.photos/600/400?random=1",
-    link: "#",
-    githubLink: "#"
+    link: "https://todo-team2.vercel.app/",
+    githubLink: "https://github.com/jamong13/todo-team.git"
   },
   {
     id: 2,
@@ -116,13 +117,26 @@ export const TEAM_PROJECTS: Project[] = [
   }
 ];
 
-export const STUDENTS: Student[] = Array.from({ length: 9 }, (_, i) => ({
-  id: i + 1,
-  name: `학생 ${i + 1}`,
-  intro: "사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.",
-  link: "#",
-  githubLink: "#"
-}));
+export const STUDENTS: Student[] = Array.from({ length: 9 }, (_, i) => {
+  // 학생2 (권해지) 정보
+  if (i === 1) {
+    return {
+      id: 2,
+      name: "권해지",
+      intro: "사용자 중심의 직관적인 인터페이스를 만드는 것을 좋아하는 프론트엔드 개발자입니다.",
+      link: "https://portfolio-hji-ands-projects.vercel.app/",
+      githubLink: "https://github.com/hji-and/Portfolio.git",
+      image: kun1Img
+    };
+  }
+  return {
+    id: i + 1,
+    name: `학생 ${i + 1}`,
+    intro: "사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.",
+    link: "#",
+    githubLink: "#"
+  };
+});
 
 export const HERO_TITLE = "우리 학생들은";
 export const HERO_SUBTITLE = "(산대특)_생성형 AI(스테이블 디퓨전) 활용 모던 웹 (피그마, 리액트, 리덕스) 실무자 양성과정 수료생입니다";

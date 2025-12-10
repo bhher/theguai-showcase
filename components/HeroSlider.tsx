@@ -72,12 +72,14 @@ const HeroSlider: React.FC = () => {
                 <span className="inline-block py-1 px-3 rounded-full bg-indigo-600/30 border border-indigo-500/50 text-indigo-300 text-sm font-semibold mb-6 backdrop-blur-sm">
                   TheGuAI & Modern Web
                 </span>
-                <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                  {slide.title}
-                </h2>
-                <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-                  {slide.subtitle}
-                </p>
+                <div className="flex flex-wrap items-baseline gap-6 mb-4">
+                  <h2 className="text-4xl md:text-6xl font-bold leading-tight whitespace-nowrap">
+                    {slide.title}
+                  </h2>
+                  <p className="text-lg md:text-xl text-slate-300 leading-relaxed whitespace-nowrap">
+                    {slide.subtitle}
+                  </p>
+                </div>
                 <button className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
                   {slide.ctaText}
                 </button>

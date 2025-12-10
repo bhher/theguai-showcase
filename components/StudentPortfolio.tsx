@@ -20,9 +20,19 @@ const StudentPortfolio: React.FC = () => {
             key={student.id} 
             className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-200 flex flex-col items-center text-center group"
           >
-            <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-4 group-hover:bg-indigo-50 group-hover:text-indigo-500 transition-colors duration-300">
-              <User className="w-8 h-8" />
-            </div>
+            {student.image ? (
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-4 ring-2 ring-slate-200 group-hover:ring-indigo-300 transition-all duration-300">
+                <img 
+                  src={student.image} 
+                  alt={student.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-4 group-hover:bg-indigo-50 group-hover:text-indigo-500 transition-colors duration-300">
+                <User className="w-8 h-8" />
+              </div>
+            )}
             <h3 className="text-xl font-bold text-slate-800 mb-2">{student.name}</h3>
             <p className="text-slate-500 text-sm mb-6 px-4 h-10 line-clamp-2">
               {student.intro}
