@@ -124,7 +124,7 @@ export const STUDENTS: Student[] = Array.from({ length: 9 }, (_, i) => {
       id: 2,
       name: "권해지",
       intro: "사용자 중심의 직관적인 인터페이스를 만드는 것을 좋아하는 프론트엔드 개발자입니다.",
-      link: "https://portfolio-hji-ands-projects.vercel.app/",
+      link: "https://portfolio-lcinuxzt8-hji-ands-projects.vercel.app?_vercel_share=KrVZlesf5quOOiTsr8iSLDOpFpQElpnu",
       githubLink: "https://github.com/hji-and/Portfolio.git",
       image: kun1Img
     };
