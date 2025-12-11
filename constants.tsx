@@ -12,6 +12,14 @@ import {
   Smartphone 
 } from 'lucide-react';
 import kun1Img from './images/kun1.jpg';
+import kang1Img from './images/1kang1.jpg';
+import lee3Img from './images/3leeeun.jpg';
+import lee4Img from './images/4leeself.jpg';
+import jang5Img from './images/5jang.jpg';
+import seo6Img from './images/6jungseo1.jpg';
+import jo7Img from './images/7face1.jpg';
+import chun8Img from './images/8chun.jpg';
+import ham9Img from './images/9ham.jpg';
 
 export const INTRO_DURATION_MS = 5000;
 
@@ -118,15 +126,103 @@ export const TEAM_PROJECTS: Project[] = [
 ];
 
 export const STUDENTS: Student[] = Array.from({ length: 9 }, (_, i) => {
-  // 학생2 (권해지) 정보
+  // 학생1 (강연우) 정보
+  if (i === 0) {
+    return {
+      id: 1,
+      name: "강연우",
+      intro: "창의적인 아이디어를 현실로 구현하는 것을 즐기는 프론트엔드 개발자입니다.",
+      link: "https://portfolio-alpha-neon-nrmog8aee2.vercel.app/projects",
+      githubLink: "https://github.com/kiteu123/portfolio",
+      image: kang1Img
+    };
+  }
+  // 학생2 (권혜지) 정보
   if (i === 1) {
     return {
       id: 2,
-      name: "권해지",
+      name: "권혜지",
       intro: "사용자 중심의 직관적인 인터페이스를 만드는 것을 좋아하는 프론트엔드 개발자입니다.",
       link: "https://portfolio-lcinuxzt8-hji-ands-projects.vercel.app?_vercel_share=KrVZlesf5quOOiTsr8iSLDOpFpQElpnu",
       githubLink: "https://github.com/hji-and/Portfolio.git",
       image: kun1Img
+    };
+  }
+  // 학생3 (이은섬) 정보
+  if (i === 2) {
+    return {
+      id: 3,
+      name: "이은섬",
+      intro: "깔끔하고 효율적인 코드로 사용자에게 최고의 경험을 제공하는 프론트엔드 개발자입니다.",
+      link: "https://portfolio-drab-one-96.vercel.app/",
+      githubLink: "https://github.com/silverlsland20kid",
+      image: lee3Img
+    };
+  }
+  // 학생4 (이희수) 정보
+  if (i === 3) {
+    return {
+      id: 4,
+      name: "이희수",
+      intro: "모던한 웹 기술을 활용하여 혁신적인 솔루션을 만드는 프론트엔드 개발자입니다.",
+      link: "https://homepage-lhs.vercel.app/",
+      githubLink: "https://github.com/jamong13/homepage.git",
+      image: lee4Img
+    };
+  }
+  // 학생5 (장다정) 정보
+  if (i === 4) {
+    return {
+      id: 5,
+      name: "장다정",
+      intro: "사용자와 소통하며 지속적으로 개선하는 것을 즐기는 프론트엔드 개발자입니다.",
+      link: "https://djdropthebeat.vercel.app/",
+      githubLink: "https://github.com/djdropthebeat-tech/react-test.git",
+      image: jang5Img
+    };
+  }
+  // 학생6 (정서경) 정보
+  if (i === 5) {
+    return {
+      id: 6,
+      name: "정서경",
+      intro: "세련된 디자인과 뛰어난 사용성을 결합한 웹 애플리케이션을 만드는 프론트엔드 개발자입니다.",
+      link: "https://withn.vercel.app/",
+      githubLink: "https://github.com/webjsk-dotcom/withn.git",
+      image: seo6Img
+    };
+  }
+  // 학생7 (조이한) 정보
+  if (i === 6) {
+    return {
+      id: 7,
+      name: "조이한",
+      intro: "최신 기술 스택을 활용하여 확장 가능한 웹 애플리케이션을 개발하는 프론트엔드 개발자입니다.",
+      link: "https://turborepo-tailwindcss-v3-migration-template-aa24glmdj.vercel.app/",
+      githubLink: "https://github.com/Noma9363/turborepo-tailwindcss-v3-migration-template",
+      image: jo7Img
+    };
+  }
+  // 학생8 (천다솜) 정보
+  if (i === 7) {
+    return {
+      id: 8,
+      name: "천다솜",
+      intro: "아름다운 UI와 부드러운 사용자 경험을 추구하는 프론트엔드 개발자입니다.",
+      link: "https://portfolio-x1m9.vercel.app/",
+      githubLink: "https://github.com/dasomchun/Portfolio",
+      image: chun8Img
+    };
+  }
+  // 학생9 (함다슬) 정보
+  if (i === 8) {
+    return {
+      id: 9,
+      name: "함다슬",
+      intro: "실용적이고 효율적인 솔루션을 통해 사용자에게 가치를 전달하는 프론트엔드 개발자입니다.",
+      link: "https://uoy1013.dothome.co.kr/",
+      githubLink: "https://github.com/hamdasule/frontend/tree/main/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A42",
+      image: ham9Img
     };
   }
   return {
