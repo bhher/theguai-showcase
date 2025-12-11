@@ -177,7 +177,7 @@ export const STUDENTS: Student[] = Array.from({ length: 9 }, (_, i) => {
       name: "장다정",
       intro: "사용자와 소통하며 지속적으로 개선하는 것을 즐기는 프론트엔드 개발자입니다.",
       link: "https://djdropthebeat.vercel.app/",
-      githubLink: "https://github.com/djdropthebeat-tech/react-test.git",
+      githubLink: "https://github.com/djdropthebeat-tech/portfolio",
       image: jang5Img
     };
   }
