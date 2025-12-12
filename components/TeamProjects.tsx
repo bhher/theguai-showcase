@@ -33,10 +33,33 @@ const TeamProjects: React.FC = () => {
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-indigo-400 transition-colors">
-                  {project.title}
+                  {project.title.includes('|') ? (
+                    <>
+                      <div>{project.title.split('|')[0]}</div>
+                      <div>{project.title.split('|')[1]}</div>
+                    </>
+                  ) : project.title.includes(':') ? (
+                    <>
+                      <div>{project.title.split(':')[0]}</div>
+                      <div>{project.title.split(':')[1].trim()}</div>
+                    </>
+                  ) : (
+                    project.title
+                  )}
                 </h3>
                 <p className="text-slate-400 mb-6 leading-relaxed">
-                  {project.description}
+                  {project.description.split('\n').map((line, index, array) => (
+                    <React.Fragment key={index}>
+                      {line}
+                      {index < array.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
+                  {project.id === 2 && (
+                    <>
+                      <br />
+                      <br />
+                    </>
+                  )}
                 </p>
                 <div className="flex gap-3">
                   <a 
