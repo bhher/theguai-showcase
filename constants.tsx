@@ -112,7 +112,7 @@ export const TEAM_PROJECTS: Project[] = [
     title: "팀명 : ToDo|제목 : 오늘 뭐 하지?",
     description: "\"오늘 뭐 하지?\"라는 주제에 맞춰 할일 관리, 날씨 기반 옷차림 추천, 영화 추천, 지역 기반 맛집 추천을 제공하는 웹 사이트 (팀원: 강연우, 권혜지, 이희수, 천다솜)",
     image: "https://picsum.photos/600/400?random=1",
-    link: "https://todo-team2.vercel.app/",
+    link: "https://todo-team-project-eosin.vercel.app/",
     githubLink: "https://github.com/jamong13/todo-team.git"
   },
   {
